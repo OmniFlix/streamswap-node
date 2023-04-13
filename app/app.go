@@ -123,21 +123,21 @@ import (
 
 	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
 
-	"github.com/CosmWasm/wasmd/x/wasm"
-	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/OmniFlix/streamswap-node/x/wasm"
+	wasmkeeper "github.com/OmniFlix/streamswap-node/x/wasm/keeper"
+	wasmtypes "github.com/OmniFlix/streamswap-node/x/wasm/types"
 )
 
-const appName = "WasmApp"
+const appName = "StreamSwapApp"
 
 // We pull these out so we can set them with LDFLAGS in the Makefile
 var (
-	NodeDir      = ".wasmd"
-	Bech32Prefix = "wasm"
+	NodeDir      = ".streamswapd"
+	Bech32Prefix = "streamswap"
 
 	// If EnabledSpecificProposals is "", and this is "true", then enable all x/wasm proposals.
 	// If EnabledSpecificProposals is "", and this is not "true", then disable all x/wasm proposals.
-	ProposalsEnabled = "false"
+	ProposalsEnabled = "true"
 	// If set to non-empty string it must be comma-separated list of values that are all a subset
 	// of "EnableAllProposals" (takes precedence over ProposalsEnabled)
 	// https://github.com/CosmWasm/wasmd/blob/02a54d33ff2c064f3539ae12d75d027d9c665f05/x/wasm/internal/types/proposal.go#L28-L34

@@ -26,5 +26,5 @@ buf generate --template buf.gen.doc.yml
 cd ..
 
 # move proto files to the right places
-cp -r github.com/CosmWasm/wasmd/* ./
+cp -r github.com/OmniFlix/streamswap-node/* ./
 rm -rf github.com

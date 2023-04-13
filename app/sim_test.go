@@ -36,7 +36,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/CosmWasm/wasmd/x/wasm"
+	"github.com/OmniFlix/streamswap-node/x/wasm"
 )
 
 // SimAppChainID hardcoded chainID for simulation

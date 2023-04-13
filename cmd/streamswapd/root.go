@@ -30,14 +30,14 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/CosmWasm/wasmd/app"
-	"github.com/CosmWasm/wasmd/app/params"
-	"github.com/CosmWasm/wasmd/x/wasm"
-	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/OmniFlix/streamswap-node/app"
+	"github.com/OmniFlix/streamswap-node/app/params"
+	"github.com/OmniFlix/streamswap-node/x/wasm"
+	wasmkeeper "github.com/OmniFlix/streamswap-node/x/wasm/keeper"
+	wasmtypes "github.com/OmniFlix/streamswap-node/x/wasm/types"
 )
 
-// NewRootCmd creates a new root command for wasmd. It is called once in the
+// NewRootCmd creates a new root command for streamswapd. It is called once in the
 // main function.
 func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 	encodingConfig := app.MakeEncodingConfig()
