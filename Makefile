@@ -12,7 +12,7 @@ SIMAPP = ./app
 DOCKER := $(shell which docker)
 BUF_IMAGE=bufbuild/buf@sha256:3cb1f8a4b48bd5ad8f09168f10f607ddc318af202f5c057d52a45216793d85e5 #v1.4.0
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace $(BUF_IMAGE)
-HTTPS_GIT := https://github.com/CosmWasm/wasmd.git
+HTTPS_GIT := https://github.com/OmniFlix/streamswap-node.git
 
 export GO111MODULE = on
 
@@ -83,11 +83,11 @@ ifeq ($(OS),Windows_NT)
 	$(error wasmd server not supported. Use "make build-windows-client" for client)
 	exit 1
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/streamswapd ./cmd/wasmd
+	go build -mod=readonly $(BUILD_FLAGS) -o build/streamswapd ./cmd/streamswapd
 endif
 
 build-windows-client: go.sum
-	GOOS=windows GOARCH=amd64 go build -mod=readonly $(BUILD_FLAGS) -o build/streamswapd.exe ./cmd/wasmd
+	GOOS=windows GOARCH=amd64 go build -mod=readonly $(BUILD_FLAGS) -o build/streamswapd.exe ./cmd/streamswapd
 
 build-contract-tests-hooks:
 ifeq ($(OS),Windows_NT)
@@ -97,7 +97,7 @@ else
 endif
 
 install: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/wasmd
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/streamswapd
 
 ########################################
 ### Tools & dependencies
@@ -113,7 +113,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go install github.com/RobotsAndPencils/goviz@latest
-	@goviz -i ./cmd/wasmd -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i ./cmd/streamswapd -d 2 | dot -Tpng -o dependency-graph.png
 
 clean:
 	rm -rf snapcraft-local.yaml build/
